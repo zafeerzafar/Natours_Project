@@ -1,0 +1,79 @@
+.story {
+    width: 75%;
+    margin: 0 auto;
+    box-shadow: 0 3rem 6rem rgba($color-black, .1);
+    background-color: rgba($color-white, .6);
+    border-radius: .3rem;
+    padding: 6rem;
+    padding-left: 9rem;
+    font-size: $default-font-size;
+    transform: skewX(-12deg);
+
+    @include respond(tab-port) {
+        width: 100%;
+        padding: 4rem;
+    }
+
+    @include respond(phone) {
+        transform: skew(0);
+    }
+
+    &__shape {
+        width: 15rem;
+        height: 15rem;
+        float: left;
+        margin-right: 4rem;
+        display: block;
+        shape-outside: circle(50% at 50% 50%);
+        -webkit-shape-outside: circle(50% at 50% 50%);
+        -webkit-clip-path: circle(50% at 50% 50%);
+        clip-path: circle(45% at 50% 50%);
+        transform: skewX(12deg);
+        position: relative;
+        
+        @include respond(phone) {
+            transform: skew(0);
+        }
+
+    }
+    
+    &__text {
+        transform: skewX(12deg);
+        
+        @include respond(phone) {
+            transform: skew(0);
+        }
+
+    }
+
+    &__image {
+        width: 151%;
+        transform: translateX(-18%) scale(1.4);
+        transition: all 0.5s;
+        backface-visibility: hidden;
+    }
+
+    &__caption {
+        position: absolute;
+        top: 120%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: $color-white;
+        text-transform: uppercase;
+        text-align: center;
+        font-size: 1.7rem;
+        opacity: 0;
+        transition: all 0.5s;
+        backface-visibility: hidden;
+    }
+
+    &:hover &__caption {
+        opacity: 1;
+        top: 50%;
+    }
+
+    &:hover &__image {
+        transform: translateX(-18%) scale(1);
+        filter: blur(.2rem) brightness(.9);
+    }
+}
